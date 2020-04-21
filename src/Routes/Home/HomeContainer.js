@@ -25,7 +25,7 @@ export default class extends React.Component {
 
       this.setState({ nowPlaying, upcoming, popular });
     } catch {
-      this.setState({ error: "Can't find movies information." });
+      this.setState({ error: "Can't find movies' information." });
     } finally {
       this.setState({
         loading: false,
