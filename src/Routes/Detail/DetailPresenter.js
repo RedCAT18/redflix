@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 
 import Message from 'Components/Message';
 import Loader from 'Components/Loader';
@@ -64,10 +65,20 @@ const Video = styled.p`
   }
 `;
 
+const SeasonTitle = styled.h3`
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 10px;
+`;
+
+const Season = styled.p`
+  margin: 3px;
+`;
+
 const Backward = styled.div`
   position: absolute;
-  bottom: 0;
-  right: 10vw;
+  top: 0;
+  right: 5vw;
   padding: 5px;
   cursor: pointer;
 `;
@@ -179,6 +190,24 @@ const DetailPresenter = ({ result, error, loading, goBack }) => {
               ))}
             </ItemContainer>
           ) : null}
+          {result?.seasons ? (
+            <ItemContainer>
+              <SeasonTitle>Seasons</SeasonTitle>
+              {result.seasons.map((season) => (
+                <Link
+                  to={{
+                    pathname: `${result.id}/season/${season.season_number}`,
+                    state: { name: result.original_name },
+                  }}
+                  key={season.id}
+                >
+                  <Season>
+                    {season.name} ({season.episode_count} episodes)
+                  </Season>
+                </Link>
+              ))}
+            </ItemContainer>
+          ) : null}
         </Data>
         <Backward onClick={handleClick}>
           <span role="img" aria-label="Arrow">
@@ -195,6 +224,7 @@ DetailPresenter.propTypes = {
   result: PropTypes.object,
   error: PropTypes.string,
   loading: PropTypes.bool.isRequired,
+  goBack: PropTypes.func.isRequired,
 };
 
 export default DetailPresenter;

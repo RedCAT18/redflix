@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const Container = styled.div`
   font-size: 12px;
-  margin: 5px;
+  margin: 5px 10px;
 `;
 
 const Image = styled.div`
