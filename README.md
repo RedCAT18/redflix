@@ -4,10 +4,10 @@ Learning React and ES6 by building a Movie Directory App.
 
 ##Screens
 
-- [ ] Home
-- [ ] TV Shows
-- [ ] Search
-- [ ] Detail
+- [x] Home
+- [x] TV Shows
+- [x] Search
+- [x] Detail
 
 ## API Verbs
 
@@ -19,3 +19,9 @@ Learning React and ES6 by building a Movie Directory App.
 - [x] TV Show Detail
 - [x] Movie Detail
 - [x] Search (TV, Movie)
+
+## Code Challenges
+
+- [ ] IMDB link
+- [ ] Tabs inside of Movie / Show details (YT videos, Production Company, Countries)
+- [ ] Collections / Seasons

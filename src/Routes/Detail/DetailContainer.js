@@ -17,6 +17,7 @@ export default class extends React.Component {
   }
 
   async componentDidMount() {
+    // console.log(this.props);
     const {
       match: {
         params: { id },
@@ -44,7 +45,17 @@ export default class extends React.Component {
 
   render() {
     const { result, error, loading } = this.state;
+    const {
+      history: { goBack },
+    } = this.props;
     console.log(result);
-    return <DetailPresenter result={result} error={error} loading={loading} />;
+    return (
+      <DetailPresenter
+        result={result}
+        error={error}
+        loading={loading}
+        goBack={goBack}
+      />
+    );
   }
 }

@@ -22,7 +22,7 @@ const Content = styled.div`
 `;
 
 const Cover = styled.div`
-  width: 30%;
+  width: 40%;
   background-image: url(${(props) => props.bgImg});
   background-position: center center;
   background-size: cover;
@@ -31,8 +31,8 @@ const Cover = styled.div`
 `;
 
 const Data = styled.div`
-  width: 70%;
-  margin-left: 10px;
+  width: 60%;
+  margin-left: 20px;
 `;
 
 const Title = styled.h2`
@@ -54,7 +54,22 @@ const Overview = styled.p`
   font-size: 12px;
   opacity: 0.8;
   line-height: 1.5;
-  width: 60%;
+  width: 70%;
+`;
+
+const Video = styled.p`
+  margin-bottom: 5px;
+  &:hover {
+    opacity: 0.7;
+  }
+`;
+
+const Backward = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 10vw;
+  padding: 5px;
+  cursor: pointer;
 `;
 
 const Backdrop = styled.div`
@@ -71,7 +86,11 @@ const Backdrop = styled.div`
   z-index: -1;
 `;
 
-const DetailPresenter = ({ result, error, loading }) => {
+const DetailPresenter = ({ result, error, loading, goBack }) => {
+  const handleClick = () => {
+    return goBack();
+  };
+  // console.log(result.runtime);
   return loading ? (
     <>
       <Helmet>
@@ -99,7 +118,7 @@ const DetailPresenter = ({ result, error, loading }) => {
           bgImg={
             result.poster_path
               ? `https://image.tmdb.org/t/p/original${result.poster_path}`
-              : require('../../assets/noPosterSmall.png')
+              : require('../../assets/noPosterBig.png')
           }
         />
         <Data>
@@ -116,7 +135,11 @@ const DetailPresenter = ({ result, error, loading }) => {
             </Item>
             <Divider>▪</Divider>
             <Item>
-              {result?.runtime ? result.runtime : result.episode_run_time[0]}{' '}
+              {result?.runtime && result.runtime !== null
+                ? result.runtime
+                  ? result.runtime
+                  : result.episode_run_time[0]
+                : 'Unknown'}{' '}
               min
             </Item>
             <Divider>▪</Divider>
@@ -129,8 +152,40 @@ const DetailPresenter = ({ result, error, loading }) => {
                 )}
             </Item>
           </ItemContainer>
+          <ItemContainer>
+            <Item>
+              Languages :{' '}
+              {result?.spoken_languages
+                ? result.spoken_languages.map((lang) => `${lang.name} `)
+                : result.languages.map((lang) => `${lang} `)}
+            </Item>
+          </ItemContainer>
           <Overview>{result?.overview}</Overview>
+          {result?.videos ? (
+            <ItemContainer>
+              {result.videos.results.map((result) => (
+                <Video key={result.id}>
+                  <a
+                    href={`https://www.youtube.com/watch?v=${result.key}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span role="img" aria-label="Videos">
+                      📺
+                    </span>{' '}
+                    {result.name}
+                  </a>
+                </Video>
+              ))}
+            </ItemContainer>
+          ) : null}
         </Data>
+        <Backward onClick={handleClick}>
+          <span role="img" aria-label="Arrow">
+            ◀️
+          </span>{' '}
+          Go Previous Page
+        </Backward>
       </Content>
     </Container>
   );
