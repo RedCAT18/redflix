@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import Loader from 'Components/Loader';
 import Message from 'Components/Message';
@@ -133,8 +134,10 @@ const CollectionPresenter = ({ result, error, loading, goBack }) => {
                   />
                   <ItemContainer>
                     <SubTitle>
-                      {part.original_title} (
-                      {part.release_date.substring(0, 4) || ' - '})
+                      <Link to={`/movie/${part.id}`}>
+                        {part.original_title}
+                      </Link>{' '}
+                      ({part.release_date.substring(0, 4) || ' - '})
                     </SubTitle>
                     <Item>{part.overview}</Item>
                   </ItemContainer>
