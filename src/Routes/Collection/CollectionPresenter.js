@@ -40,6 +40,7 @@ const Image = styled.div`
   background-position: center center;
   background-size: cover;
   height: 100%;
+  min-height: 600px;
   border-radius: 5px;
 `;
 

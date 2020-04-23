@@ -28,6 +28,7 @@ const Cover = styled.div`
   background-position: center center;
   background-size: cover;
   height: 100%;
+  min-height: 600px;
   border-radius: 5px;
 `;
 
@@ -74,6 +75,7 @@ const SeasonTitle = styled.h3`
 
 const Season = styled.p`
   margin: 3px;
+  font-size: 14px;
 `;
 
 const Backward = styled.div`
@@ -272,10 +274,12 @@ const DetailPresenter = ({ result, error, loading, goBack }) => {
           ) : null}
           {result?.belongs_to_collection ? (
             <Link to={`/collection/${result.belongs_to_collection.id}/`}>
-              <span role="img" aria-label="collection">
-                ▶️{' '}
-              </span>
-              {result.belongs_to_collection.name}
+              <Season>
+                <span role="img" aria-label="collection">
+                  ▶️{' '}
+                </span>
+                {result.belongs_to_collection.name}
+              </Season>
             </Link>
           ) : null}
         </Data>

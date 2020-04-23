@@ -30,6 +30,7 @@ const Image = styled.div`
   width: 35%;
   background-image: url(${(props) => props.bgImage});
   height: 100%;
+  min-height: 600px;
   background-size: cover;
   background-position: center center;
   border-radius: 5px;
@@ -92,7 +93,7 @@ const SeriesPresenter = ({ name, result, error, loading, goBack }) => {
             {result?.episodes.map((ep) => (
               <Item key={ep.id}>
                 {ep.episode_number}: {ep.name}(
-                {ep?.air_date.substring(0, 4) || ' - '})
+                {ep?.air_date?.substring(0, 4) || ' - '})
               </Item>
             ))}
           </ItemContainer>
