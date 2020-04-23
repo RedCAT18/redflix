@@ -20,21 +20,32 @@ const Content = styled.div`
   height: 100%;
   position: relative;
   z-index: 1;
+  @media only screen and (max-width: 800px) {
+    flex-direction: column;
+  }
 `;
 
 const Cover = styled.div`
-  width: 40%;
+  width: 35%;
+  min-width: 400px;
   background-image: url(${(props) => props.bgImg});
   background-position: center center;
   background-size: cover;
   height: 100%;
   min-height: 600px;
   border-radius: 5px;
+  @media only screen and (max-width: 800px) {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 `;
 
 const Data = styled.div`
-  width: 60%;
+  width: 65%;
   margin-left: 20px;
+  @media only screen and (max-width: 800px) {
+    width: 100%;
+  }
 `;
 
 const Title = styled.h2`
@@ -80,10 +91,14 @@ const Season = styled.p`
 
 const Backward = styled.div`
   position: absolute;
-  top: 0;
+  top: -25px;
   right: 5vw;
   padding: 5px;
   cursor: pointer;
+  @media only screen and (max-width: 800px) {
+    top: -30px;
+    right: 0;
+  }
 `;
 
 const Backdrop = styled.div`

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 import Loader from 'Components/Loader';
 import Message from 'Components/Message';
@@ -33,6 +34,9 @@ const Content = styled.div`
   height: 100%;
   position: relative;
   z-index: 1;
+  @media only screen and (max-width: 800px) {
+    flex-direction: column;
+  }
 `;
 
 const Image = styled.div`
@@ -43,11 +47,18 @@ const Image = styled.div`
   height: 100%;
   min-height: 600px;
   border-radius: 5px;
+  @media only screen and (max-width: 800px) {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 `;
 
 const Data = styled.div`
   width: 65%;
   margin-left: 20px;
+  @media only screen and (max-width: 800px) {
+    width: 100%;
+  }
 `;
 
 const Title = styled.p`
@@ -64,6 +75,9 @@ const Collection = styled.div`
 const ItemContainer = styled.div`
   width: 70%;
   margin-bottom: 10px;
+  @media only screen and (max-width: 800px) {
+    width: 100%;
+  }
 `;
 
 const Item = styled.p`
@@ -90,10 +104,14 @@ const SubTitle = styled.p`
 
 const Backward = styled.div`
   position: absolute;
-  top: 0;
+  top: -25px;
   right: 5vw;
   padding: 5px;
   cursor: pointer;
+  @media only screen and (max-width: 800px) {
+    top: -30px;
+    right: 0;
+  }
 `;
 
 const CollectionPresenter = ({ result, error, loading, goBack }) => {
@@ -105,6 +123,9 @@ const CollectionPresenter = ({ result, error, loading, goBack }) => {
     <Loader />
   ) : (
     <Container>
+      <Helmet>
+        <title>{result?.name} | RedFlix</title>
+      </Helmet>
       <Backdrop
         bgImg={`https://image.tmdb.org/t/p/original${result.backdrop_path}`}
       ></Backdrop>

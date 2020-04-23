@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
 
 import Message from 'Components/Message';
 import Loader from 'Components/Loader';
@@ -24,6 +25,9 @@ const Content = styled.div`
   flex-direction: row;
   height: 100%;
   position: relative;
+  @media only screen and (max-width: 800px) {
+    flex-direction: column;
+  }
 `;
 
 const Image = styled.div`
@@ -34,11 +38,18 @@ const Image = styled.div`
   background-size: cover;
   background-position: center center;
   border-radius: 5px;
+  @media only screen and (max-width: 800px) {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 `;
 
 const Data = styled.div`
   width: 65%;
   margin-left: 20px;
+  @media only screen and (max-width: 800px) {
+    width: 100%;
+  }
 `;
 
 const ItemContainer = styled.div`
@@ -59,10 +70,14 @@ const SubTitle = styled.p`
 
 const Backward = styled.div`
   position: absolute;
-  top: 0;
+  top: -25px;
   right: 5vw;
   padding: 5px;
   cursor: pointer;
+  @media only screen and (max-width: 800px) {
+    top: -30px;
+    right: 0;
+  }
 `;
 
 const SeriesPresenter = ({ name, result, error, loading, goBack }) => {
@@ -74,6 +89,11 @@ const SeriesPresenter = ({ name, result, error, loading, goBack }) => {
     <Loader />
   ) : (
     <Container>
+      <Helmet>
+        <title>
+          {name} {result?.name} | RedFlix
+        </title>
+      </Helmet>
       <Content>
         <Image
           bgImage={

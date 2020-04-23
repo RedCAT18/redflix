@@ -25,3 +25,7 @@ Learning React and ES6 by building a Movie Directory App.
 - [x] IMDB link
 - [x] Tabs inside of Movie / Show details (YT videos, Production Company, Countries)
 - [x] Collections / Seasons
+
+# Preview
+
+Try it on [netlify] : (https://compassionate-wozniak-1f9738.netlify.app)
