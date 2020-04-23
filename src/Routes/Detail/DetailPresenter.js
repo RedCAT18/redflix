@@ -36,6 +36,7 @@ const Cover = styled.div`
   border-radius: 5px;
   @media only screen and (max-width: 800px) {
     width: 100%;
+    min-width: 0;
     margin-bottom: 20px;
   }
 `;
@@ -45,6 +46,8 @@ const Data = styled.div`
   margin-left: 20px;
   @media only screen and (max-width: 800px) {
     width: 100%;
+    margin-bottom: 20px;
+    margin-left: 0;
   }
 `;
 
@@ -99,6 +102,11 @@ const Backward = styled.div`
     top: -30px;
     right: 0;
   }
+`;
+
+const Collection = styled.p`
+  margin-bottom: 30px;
+  font-size: 14px;
 `;
 
 const Backdrop = styled.div`
@@ -289,12 +297,12 @@ const DetailPresenter = ({ result, error, loading, goBack }) => {
           ) : null}
           {result?.belongs_to_collection ? (
             <Link to={`/collection/${result.belongs_to_collection.id}/`}>
-              <Season>
+              <Collection>
                 <span role="img" aria-label="collection">
                   ▶️{' '}
                 </span>
                 {result.belongs_to_collection.name}
-              </Season>
+              </Collection>
             </Link>
           ) : null}
         </Data>

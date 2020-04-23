@@ -41,6 +41,7 @@ const Image = styled.div`
   @media only screen and (max-width: 800px) {
     width: 100%;
     margin-bottom: 20px;
+    min-width: 0;
   }
 `;
 
@@ -49,6 +50,8 @@ const Data = styled.div`
   margin-left: 20px;
   @media only screen and (max-width: 800px) {
     width: 100%;
+    margin-left: 0;
+    margin-bottom: 40px;
   }
 `;
 

@@ -50,6 +50,7 @@ const Image = styled.div`
   @media only screen and (max-width: 800px) {
     width: 100%;
     margin-bottom: 20px;
+    min-width: 0;
   }
 `;
 
@@ -58,6 +59,8 @@ const Data = styled.div`
   margin-left: 20px;
   @media only screen and (max-width: 800px) {
     width: 100%;
+    margin-bottom: 20px;
+    margin-left: 0;
   }
 `;
 
@@ -100,6 +103,9 @@ const SubTitle = styled.p`
   font-weight: 500;
   margin-top: 20px;
   margin-bottom: 5px;
+  @media only screen and (max-width: 800px) {
+    margin-top: 5px;
+  }
 `;
 
 const Backward = styled.div`
