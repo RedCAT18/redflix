@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.js": "/redflix/static/js/main.101d2724.chunk.js",
+    "main.js.map": "/redflix/static/js/main.101d2724.chunk.js.map",
+    "runtime-main.js": "/redflix/static/js/runtime-main.96f5260b.js",
+    "runtime-main.js.map": "/redflix/static/js/runtime-main.96f5260b.js.map",
+    "static/js/2.45a05fca.chunk.js": "/redflix/static/js/2.45a05fca.chunk.js",
+    "static/js/2.45a05fca.chunk.js.map": "/redflix/static/js/2.45a05fca.chunk.js.map",
+    "index.html": "/redflix/index.html",
+    "precache-manifest.a6bad4679a2731ca1755a29145d97c4a.js": "/redflix/precache-manifest.a6bad4679a2731ca1755a29145d97c4a.js",
+    "service-worker.js": "/redflix/service-worker.js",
+    "static/js/2.45a05fca.chunk.js.LICENSE.txt": "/redflix/static/js/2.45a05fca.chunk.js.LICENSE.txt",
+    "static/media/noPosterBig.png": "/redflix/static/media/noPosterBig.1217af46.png",
+    "static/media/noPosterSmall.png": "/redflix/static/media/noPosterSmall.f38d1ff7.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.96f5260b.js",
+    "static/js/2.45a05fca.chunk.js",
+    "static/js/main.101d2724.chunk.js"
+  ]
+}
