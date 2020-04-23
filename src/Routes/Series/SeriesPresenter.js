@@ -20,7 +20,7 @@ const Title = styled.p`
 `;
 
 const Content = styled.div`
-  margin: 5px;
+  margin: 30px;
   display: flex;
   flex-direction: row;
   height: 100%;
