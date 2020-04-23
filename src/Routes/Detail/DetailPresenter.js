@@ -39,6 +39,7 @@ const Data = styled.div`
 const Title = styled.h2`
   font-size: 32px;
   margin-bottom: 20px;
+  width: 75%;
 `;
 
 const ItemContainer = styled.div`
@@ -162,6 +163,55 @@ const DetailPresenter = ({ result, error, loading, goBack }) => {
                     : `${genre.name} / `
                 )}
             </Item>
+            <Divider>▪</Divider>
+            <Item>
+              {result?.origin_country
+                ? result.origin_country.map((cntr, idx) =>
+                    idx === result.origin_country.length - 1
+                      ? cntr
+                      : `${cntr} /`
+                  )
+                : null}
+              {result?.production_countries
+                ? result.production_countries.map((cntr, idx) =>
+                    idx === result.production_countries.length - 1
+                      ? cntr.iso_3166_1
+                      : `${cntr.iso_3166_1} /`
+                  )
+                : null}
+            </Item>
+            <Item>
+              {result?.homepage ? (
+                <>
+                  <Divider>▪</Divider>
+                  <a
+                    href={result.homepage}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span role="img" aria-label="Homepage">
+                      🏠
+                    </span>
+                  </a>
+                </>
+              ) : null}
+            </Item>
+            <Item>
+              {result?.imdb_id ? (
+                <>
+                  <Divider>▪</Divider>
+                  <a
+                    href={`https://www.imdb.com/title/${result.imdb_id}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span role="img" aria-label="IMDB">
+                      🗃️
+                    </span>
+                  </a>
+                </>
+              ) : null}
+            </Item>
           </ItemContainer>
           <ItemContainer>
             <Item>
@@ -169,6 +219,18 @@ const DetailPresenter = ({ result, error, loading, goBack }) => {
               {result?.spoken_languages
                 ? result.spoken_languages.map((lang) => `${lang.name} `)
                 : result.languages.map((lang) => `${lang} `)}
+            </Item>
+          </ItemContainer>
+          <ItemContainer>
+            <Item>
+              Production:{' '}
+              {result?.production_companies
+                ? result.production_companies.map((com, idx) =>
+                    idx === result.production_companies.length - 1
+                      ? `${com.name}(${com.origin_country || ' - '})`
+                      : `${com.name}(${com.origin_country || ' - '}) | `
+                  )
+                : null}
             </Item>
           </ItemContainer>
           <Overview>{result?.overview}</Overview>
@@ -208,6 +270,14 @@ const DetailPresenter = ({ result, error, loading, goBack }) => {
               ))}
             </ItemContainer>
           ) : null}
+          {result?.belongs_to_collection ? (
+            <Link to={`/collection/${result.belongs_to_collection.id}/`}>
+              <span role="img" aria-label="collection">
+                ▶️{' '}
+              </span>
+              {result.belongs_to_collection.name}
+            </Link>
+          ) : null}
         </Data>
         <Backward onClick={handleClick}>
           <span role="img" aria-label="Arrow">
@@ -216,6 +286,7 @@ const DetailPresenter = ({ result, error, loading, goBack }) => {
           Go Previous Page
         </Backward>
       </Content>
+      {error && <Message color="#e74c3c" text={error} />}
     </Container>
   );
 };

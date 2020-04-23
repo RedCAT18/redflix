@@ -50,6 +50,12 @@ const Item = styled.p`
   margin-bottom: 3px;
 `;
 
+const SubTitle = styled.p`
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 5px;
+`;
+
 const Backward = styled.div`
   position: absolute;
   top: 0;
@@ -78,14 +84,15 @@ const SeriesPresenter = ({ name, result, error, loading, goBack }) => {
         <Data>
           <Title>{name}</Title>
           <ItemContainer>
-            <Item>
-              {result.name} ({result.air_date.substring(0, 4)})
-            </Item>
+            <SubTitle>
+              {result.name} ({result?.air_date.substring(0, 4) || ' - '})
+            </SubTitle>
           </ItemContainer>
           <ItemContainer>
             {result?.episodes.map((ep) => (
               <Item key={ep.id}>
-                {ep.episode_number}: {ep.name}({ep.air_date.substring(0, 4)})
+                {ep.episode_number}: {ep.name}(
+                {ep?.air_date.substring(0, 4) || ' - '})
               </Item>
             ))}
           </ItemContainer>
@@ -97,6 +104,7 @@ const SeriesPresenter = ({ name, result, error, loading, goBack }) => {
           Go Previous Page
         </Backward>
       </Content>
+      {error && <Message color="#e74c3c" text={error} />}
     </Container>
   );
 };
