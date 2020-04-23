@@ -8,13 +8,14 @@ const Container = styled.div`
   justify-content: center;
   font-size: 30px;
   margin-top: 20px;
+  img {
+    transform: translateY(-5vh);
+  }
 `;
 
 const Loader = () => (
   <Container>
-    <span role="img" aria-label="Loading">
-      ⏳
-    </span>
+    <img src={require('../assets/loading.svg')} alt="loading" />
   </Container>
 );
 
