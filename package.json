@@ -28,7 +28,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "homepage": "https://RedCAT18.github.io/redflix",
+  "homepage": "https://compassionate-wozniak-1f9738.netlify.app",
   "browserslist": {
     "production": [
       ">0.2%",
