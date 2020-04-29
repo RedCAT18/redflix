@@ -25,7 +25,6 @@ const DetailContainer = (props) => {
       const { data } = isMovie
         ? await moviesApi.movieDetail(parsedId)
         : await tvApi.showDetail(parsedId);
-      console.log(data);
       setResult(data);
     };
 

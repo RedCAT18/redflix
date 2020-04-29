@@ -90,6 +90,9 @@ const SeasonTitle = styled.h3`
 const Season = styled.p`
   margin: 3px;
   font-size: 14px;
+  &:hover {
+    opacity: 0.7;
+  }
 `;
 
 const Backward = styled.div`
@@ -107,6 +110,9 @@ const Backward = styled.div`
 const Collection = styled.p`
   margin-bottom: 30px;
   font-size: 14px;
+  &:hover {
+    opacity: 0.7;
+  }
 `;
 
 const Backdrop = styled.div`
@@ -127,7 +133,7 @@ const DetailPresenter = ({ result, error, loading, goBack }) => {
   const handleClick = () => {
     return goBack();
   };
-  console.log(result);
+  // console.log(result);
   return loading ? (
     <>
       <Helmet>
