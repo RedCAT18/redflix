@@ -127,7 +127,7 @@ const DetailPresenter = ({ result, error, loading, goBack }) => {
   const handleClick = () => {
     return goBack();
   };
-  // console.log(result.runtime);
+  console.log(result);
   return loading ? (
     <>
       <Helmet>
