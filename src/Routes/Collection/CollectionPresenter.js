@@ -133,12 +133,12 @@ const CollectionPresenter = ({ result, error, loading, goBack }) => {
         <title>{result?.name} | RedFlix</title>
       </Helmet>
       <Backdrop
-        bgImg={`https://image.tmdb.org/t/p/original${result.backdrop_path}`}
+        bgImg={`https://image.tmdb.org/t/p/original${result?.backdrop_path}`}
       ></Backdrop>
       <Content>
         <Image
           bgImg={
-            result.poster_path
+            result?.poster_path
               ? `https://image.tmdb.org/t/p/original${result.poster_path}`
               : require('../../assets/noPosterBig.png')
           }
@@ -155,7 +155,7 @@ const CollectionPresenter = ({ result, error, loading, goBack }) => {
                   <Thumbnail
                     bgImg={
                       part.poster_path
-                        ? `https://image.tmdb.org/t/p/original${part.poster_path}`
+                        ? `https://image.tmdb.org/t/p/original${part?.poster_path}`
                         : require('../../assets/noPosterSmall.png')
                     }
                   />
