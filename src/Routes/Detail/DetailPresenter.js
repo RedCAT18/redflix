@@ -173,8 +173,12 @@ const DetailPresenter = ({ result, error, loading, goBack }) => {
           <ItemContainer>
             <Item>
               {result?.release_date
-                ? result.release_date.substring(0, 4)
-                : result.first_air_date.substring(0, 4)}
+                ? result.release_date !== null
+                  ? result.release_date?.substring(0, 4)
+                  : '(-)'
+                : result.first_air_date !== null
+                ? result.first_air_date?.substring(0, 4)
+                : '(-)'}
             </Item>
             <Divider>▪</Divider>
             <Item>
